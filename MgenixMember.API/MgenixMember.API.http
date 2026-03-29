@@ -1,0 +1,6 @@
+@MgenixMember.API_HostAddress = http://localhost:5037
+
+GET {{MgenixMember.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

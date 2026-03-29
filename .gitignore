@@ -1,0 +1,77 @@
+# =========================
+# Visual Studio
+# =========================
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# =========================
+# Build Results
+# =========================
+bin/
+obj/
+Debug/
+Release/
+
+# =========================
+# .NET Core
+# =========================
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# =========================
+# Rider / VS Code (optional)
+# =========================
+.idea/
+.vscode/
+
+# =========================
+# Logs
+# =========================
+*.log
+
+# =========================
+# OS Files
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# NuGet
+# =========================
+*.nupkg
+packages/
+*.snupkg
+
+# =========================
+# Environment / Config
+# =========================
+appsettings.Development.json
+appsettings.Local.json
+
+# =========================
+# Secrets (IMPORTANT 🔥)
+# =========================
+secrets.json
+
+# =========================
+# Publish Output
+# =========================
+publish/
+wwwroot/
+
+# =========================
+# SQL / Backup (optional)
+# =========================
+*.bak
+*.mdf
+*.ldf
+
+# =========================
+# Temporary files
+# =========================
+*.tmp
+*.temp
