@@ -11,5 +11,6 @@ namespace MgenixMember.Domain.Interfaces
     public interface IMemberRepository
     {
         Task<RegisterResponse> Register(RegisterRequest dto);
+        Task<LoginResponse> Login(LoginRequest dto);
     }
 }

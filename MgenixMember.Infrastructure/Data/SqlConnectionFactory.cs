@@ -14,7 +14,7 @@ namespace MgenixMember.Infrastructure.Data
     {
         private readonly IConfiguration _config;
 
-        public SqlConnectionFactory(IConfiguration config)
+        public SqlConnectionFactory(IConfiguration config) 
         {
             _config = config;
         }

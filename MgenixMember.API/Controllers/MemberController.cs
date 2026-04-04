@@ -24,5 +24,16 @@ namespace MgenixMember.API.Controllers
 
             return Ok(result);
         }
+
+        [HttpPost("login")]
+        public async Task<IActionResult> Login(LoginRequestDto dto)
+        {
+            var result = await _service.Login(dto);
+
+            if (result == null)
+                return BadRequest("Something went wrong");
+
+            return Ok(result);
+        }
     }
 }

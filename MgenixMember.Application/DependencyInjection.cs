@@ -16,6 +16,7 @@ namespace MgenixMember.Application
         public static IServiceCollection AddApplication(this IServiceCollection services)
         {
             services.AddScoped<IMemberService, MemberService>();
+            services.AddScoped<IMemberPortalService, MemberPortalService>();
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             return services;
         }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,6 +41,21 @@ namespace MgenixMember.Infrastructure.Repositories
             );
 
             return result.FirstOrDefault();
+        }
+        public async Task<LoginResponse> Login(LoginRequest dto)
+        {
+
+            var param = new DynamicParameters();
+            param.Add("@UserId", dto.UserId);
+            param.Add("@Password", dto.Password);
+            param.Add("@CookieId", null);
+
+            var result = await _dapper.GetAsync<LoginResponse>(
+                "USP_SolidityLogin",
+                param
+            );
+
+            return result;
         }
     }
 }
