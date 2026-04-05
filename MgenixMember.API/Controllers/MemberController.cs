@@ -1,4 +1,6 @@
-﻿using MgenixMember.Application.DTOs.Member.Request;
+﻿using MgenixMember.API.Services;
+using MgenixMember.Application.Common;
+using MgenixMember.Application.DTOs.Member.Request;
 using MgenixMember.Application.Interfaces;
 using MgenixMember.Application.Services;
 using Microsoft.AspNetCore.Http;
@@ -8,7 +10,7 @@ namespace MgenixMember.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UserController : ControllerBase
+    public class UserController : BaseController
     {
         private readonly IMemberService _service;
 
@@ -21,8 +23,10 @@ namespace MgenixMember.API.Controllers
         public async Task<IActionResult> Register(RegisterRequestDto dto)
         {
             var result = await _service.Register(dto);
+            if (result == null)
+                return Failure<string>("Registration failed");
 
-            return Ok(result);
+            return Success(result, "User registered successfully");
         }
 
         [HttpPost("login")]
@@ -31,9 +35,9 @@ namespace MgenixMember.API.Controllers
             var result = await _service.Login(dto);
 
             if (result == null)
-                return BadRequest("Something went wrong");
+                return Failure<string>("Invalid credentials");
 
-            return Ok(result);
+            return Success(result, "Login successful");
         }
     }
 }

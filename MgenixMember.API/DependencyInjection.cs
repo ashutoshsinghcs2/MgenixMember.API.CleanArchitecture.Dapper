@@ -1,4 +1,6 @@
-﻿using MgenixMember.Application;
+﻿using MgenixMember.API.Services;
+using MgenixMember.Application;
+using MgenixMember.Application.Common;
 using MgenixMember.Infrastructure;
 
 namespace MgenixMember.API
@@ -11,6 +13,9 @@ namespace MgenixMember.API
         {
             services.AddApplication();
             services.AddInfrastructure(configuration);
+
+            services.AddHttpContextAccessor();
+            services.AddScoped<ICurrentUserService, CurrentUserService>();
 
             return services;
         }

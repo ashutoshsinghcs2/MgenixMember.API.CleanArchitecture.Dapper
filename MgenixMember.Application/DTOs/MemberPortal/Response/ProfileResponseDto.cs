@@ -10,7 +10,7 @@ namespace MgenixMember.Application.DTOs.MemberPortal.Response
     {
         public string StatusCode { get; set; }
         public int ClientId { get; set; }
-        public int Title { get; set; }
+        public string Title { get; set; }
         public string WalletAddress { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
