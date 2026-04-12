@@ -13,9 +13,11 @@ namespace MgenixMember.API.Controllers
     public class UserController : BaseController
     {
         private readonly IMemberService _service;
+        private readonly ILogger<UserController> _logger;
 
-        public UserController(IMemberService service)
+        public UserController(ILogger<UserController> logger, IMemberService service)
         {
+            _logger = logger;
             _service = service;
         }
 
@@ -32,6 +34,7 @@ namespace MgenixMember.API.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> Login(LoginRequestDto dto)
         {
+            _logger.LogInformation("GetProfile API called");
             var result = await _service.Login(dto);
 
             if (result == null)

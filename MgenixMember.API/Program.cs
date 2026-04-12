@@ -2,10 +2,12 @@ using MgenixMember.API;
 using MgenixMember.API.Extensions;
 using MgenixMember.API.Middleware;
 using Microsoft.OpenApi.Models;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Host.UseSerilog();
 builder.Services.AddAPI(builder.Configuration);
 builder.Services.AddJwtAuthentication(builder.Configuration);
 builder.Services.AddControllers();
